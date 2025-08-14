@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shravan Murlidaran — UX Research Portfolio</title>
+  <meta name="description" content="UX Research portfolio of Shravan Murlidaran: human attention & perception, eye tracking, psychophysics, HCI, mixed reality, and AI-human studies." />
+  <meta property="og:title" content="Shravan Murlidaran — UX Research Portfolio" />
+  <meta property="og:description" content="Human-centered research across attention, perception, HCI, eye tracking, mixed reality, and AI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #10172a;
+      --ink: #e5e7eb;
+      --sub: #9aa3b2;
+      --brand: #7c3aed;
+      --muted: #1f2942;
+      --accent: #38bdf8;
+      --ring: rgba(124, 58, 237, 0.35);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--ink); background: radial-gradient(1200px 900px at 10% -10%, rgba(124,58,237,0.07), transparent 45%), radial-gradient(800px 600px at 110% 20%, rgba(56,189,248,0.08), transparent 50%), var(--bg); }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    header { position: sticky; top: 0; backdrop-filter: saturate(160%) blur(10px); background: linear-gradient(to bottom, rgba(11,16,32,0.85), rgba(11,16,32,0.35)); border-bottom: 1px solid rgba(148,163,184,0.12); z-index: 50; }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.3px; }
+    .brand .dot { width: 10px; height: 10px; background: linear-gradient(135deg, var(--brand), var(--accent)); border-radius: 999px; box-shadow: 0 0 0 4px var(--ring), 0 4px 30px rgba(124,58,237,0.35); }
+    .nav a { color: var(--ink); opacity: 0.85; font-weight: 500; padding: 10px 12px; border-radius: 10px; }
+    .nav a:hover { background: rgba(148,163,184,0.08); opacity: 1; text-decoration: none; }
+    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: center; padding: 48px 0 20px; }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border: 1px solid rgba(148,163,184,0.15); border-radius: 20px; padding: 22px; box-shadow: 0 10px 30px rgba(2,6,23,0.5), inset 0 1px 0 rgba(255,255,255,0.04); }
+    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px; background: rgba(124,58,237,0.18); color: #e9d5ff; border: 1px solid rgba(124,58,237,0.35); font-size: 12px; font-weight: 600; letter-spacing: .2px; }
+    h1 { font-size: clamp(28px, 3.2vw, 42px); margin: 10px 0 8px; line-height: 1.1; }
+    h2 { font-size: clamp(22px, 2.4vw, 30px); margin: 0 0 14px; }
+    h3 { font-size: 18px; margin: 0 0 8px; }
+    p { color: var(--ink); opacity: 0.92; line-height: 1.6; }
+    .sub { color: var(--sub); font-size: 14px; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .col-4 { grid-column: span 4; }
+    .col-6 { grid-column: span 6; }
+    .col-8 { grid-column: span 8; }
+    .col-12 { grid-column: span 12; }
+    @media (max-width: 900px) { .col-4, .col-6, .col-8 { grid-column: span 12; } }
+    .pill { padding: 8px 12px; border: 1px solid rgba(148,163,184,0.18); border-radius: 999px; background: rgba(148,163,184,0.08); display: inline-flex; gap: 8px; align-items: center; font-size: 13px; }
+    .stack { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cta { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 12px; background: linear-gradient(180deg, rgba(124,58,237,0.15), rgba(124,58,237,0.08)); border: 1px solid rgba(124,58,237,0.5); color: #f5f3ff; font-weight: 700; box-shadow: 0 10px 30px rgba(124,58,237,0.25); }
+    .cta:hover { text-decoration: none; transform: translateY(-1px); }
+    .section { margin: 36px 0 10px; }
+    .case { position: relative; overflow: hidden; }
+    .case h3 { font-size: 20px; }
+    .kpi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 10px; }
+    .kpi .tile { background: rgba(2,6,23,0.35); border: 1px solid rgba(148,163,184,0.15); border-radius: 14px; padding: 14px; text-align: center; }
+    .kpi .tile b { display: block; font-size: 20px; }
+    footer { margin: 50px 0 20px; padding-top: 18px; border-top: 1px dashed rgba(148,163,184,0.2); color: var(--sub); font-size: 14px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 1px, 1px); border: 0; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { padding: 6px 10px; border-radius: 999px; background: rgba(148,163,184,0.08); border: 1px solid rgba(148,163,184,0.18); font-size: 12px; }
+    .contact { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    @media (max-width: 700px) { .contact { grid-template-columns: 1fr 1fr; } }
+    .linkcard { background: rgba(148,163,184,0.08); border: 1px solid rgba(148,163,184,0.18); border-radius: 14px; padding: 12px; display: flex; align-items: center; gap: 10px; }
+    .visually-ordered { counter-reset: case; }
+    .visually-ordered .case::before { counter-increment: case; content: "Case " counter(case, decimal-leading-zero); position: absolute; top: 0; right: 16px; font-size: 12px; color: var(--sub); opacity: 0.6; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="dot" aria-hidden="true"></span> Shravan Murlidaran</div>
+      <nav aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#pubs">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <span class="badge">UX Research • HCI • Eye Tracking</span>
+        <h1>Human-centered research across attention, perception, and mixed reality.</h1>
+        <p>
+          I bridge psychology, neuroscience, and AI to design studies, analyze complex behavioral data, and build interactive systems.
+          My work spans eye tracking & psychophysics, HCI for assistive tech, and benchmarking model vs. human visual reasoning.
+        </p>
+        <div class="stack" style="margin-top: 10px;">
+          <a class="cta" href="#work">View case studies</a>
+          <a class="pill" href="mailto:smurlidaran@ucsb.edu">Email</a>
+          <a class="pill" href="tel:+13095329004">+1 (309) 532-9004</a>
+          <a class="pill" href="https://linkedin.com/in/shravan-murlidaran" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="pill" href="https://github.com/shravan1394" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Snapshot</h3>
+        <div class="chips">
+          <span class="chip">5+ yrs research</span>
+          <span class="chip">EyeLink 1000 Plus</span>
+          <span class="chip">Qualtrics</span>
+          <span class="chip">Python / R / MATLAB</span>
+          <span class="chip">OpenCV / PyTorch</span>
+          <span class="chip">Unity / HoloLens</span>
+          <span class="chip">Reinforcement Learning</span>
+          <span class="chip">Assistive Tech</span>
+          <span class="chip">Mixed Reality</span>
+        </div>
+        <div class="kpi">
+          <div class="tile"><b>+ Human vs. Model</b> Benchmarking VLMs on complex social scenes</div>
+          <div class="tile"><b>MR for Clinicians</b> Data viz across MRI & connectome</div>
+          <div class="tile"><b>Prosthetic Vision</b> Gaze-contingent simulation & acuity tests</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section visually-ordered">
+      <h2>Selected Case Studies</h2>
+
+      <article class="card case col-12" style="margin-top:12px;">
+        <h3>1) Human Visual Reasoning in Natural Scenes</h3>
+        <p class="sub">Lead Researcher · Eye tracking, psychophysics, free-viewing · Python, EyeLink 1000 Plus, Qualtrics</p>
+        <div class="grid" style="margin-top:10px;">
+          <div class="col-8">
+            <p>Designed controlled studies to examine how people extract scene semantics without explicit tasks. Led an undergraduate team to build a <em>Winograd Images</em> dataset (under revise & resubmit at <em>Nature Communications</em>). Analyses show that viewers form scene understanding during free viewing.</p>
+            <div class="stack">
+              <span class="pill">Research design</span>
+              <span class="pill">Stimuli curation</span>
+              <span class="pill">Gaze analytics</span>
+              <span class="pill">Reporting</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="linkcard">
+              <div>📄</div>
+              <div>
+                <div><strong>Paper draft</strong></div>
+                <a href="#" aria-disabled="true" title="available on request">Available on request</a>
+              </div>
+            </div>
+            <div class="linkcard" style="margin-top:8px;">
+              <div>🧪</div>
+              <div>
+                <div><strong>Methods & stimuli</strong></div>
+                <a href="#" aria-disabled="true" title="available on request">Available on request</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card case col-12" style="margin-top:12px;">
+        <h3>2) Eye-Movement Policies in Vision–Language Models</h3>
+        <p class="sub">Lead Developer · Human/Model comparison · Python, RL, DeepSeek Janus</p>
+        <div class="grid" style="margin-top:10px;">
+          <div class="col-8">
+            <p>Trained VLMs to generate scan paths conditioned on language prompts, then compared with human eye-tracking data to uncover attention strategy gaps. Built quantitative metrics for complex social scene understanding, benchmarking Gemini/GPT-4 class models vs. humans.</p>
+            <div class="stack">
+              <span class="pill">RL for attention</span>
+              <span class="pill">Scanpath metrics</span>
+              <span class="pill">Human factors</span>
+              <span class="pill">Evaluation</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="linkcard">
+              <div>🔬</div>
+              <div>
+                <div><strong>Evaluation framework</strong></div>
+                <a href="#" aria-disabled="true" title="available on request">Available on request</a>
+              </div>
+            </div>
+            <div class="linkcard" style="margin-top:8px;">
+              <div>🗂️</div>
+              <div>
+                <div><strong>CSB dataset (teaser)</strong></div>
+                <a href="#" aria-disabled="true" title="available on request">Available on request</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card case col-12" style="margin-top:12px;">
+        <h3>3) Gaze‑Contingent Prosthetic Vision Simulator</h3>
+        <p class="sub">Designer/Developer · Assistive tech · Python, Pulse2Percept, Eye tracking</p>
+        <div class="grid" style="margin-top:10px;">
+          <div class="col-8">
+            <p>Built a desktop simulation of prosthetic vision that updates with the user’s gaze, then ran Landolt C acuity experiments to evaluate task performance. Produced HCI-driven guidelines for future assistive interfaces.</p>
+            <div class="stack">
+              <span class="pill">Gaze-contingent UI</span>
+              <span class="pill">Acuity testing</span>
+              <span class="pill">Accessibility</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="linkcard">
+              <div>📦</div>
+              <div>
+                <div><strong>Prototype repo</strong></div>
+                <a href="#" aria-disabled="true" title="available on request">Available on request</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card case col-12" style="margin-top:12px;">
+        <h3>4) Mixed Reality Viz for Neurological Data (with AbbVie)</h3>
+        <p class="sub">Graduate Research Assistant · Unity, C#, HoloLens, API integration</p>
+        <div class="grid" style="margin-top:10px;">
+          <div class="col-8">
+            <p>Created an MR tool to explore multimodal brain data (MRI, connectome, anatomy). Implemented APIs for real-time data streams and collaborated with industry partners to align with clinical research workflows.</p>
+            <div class="stack">
+              <span class="pill">MR prototyping</span>
+              <span class="pill">Data pipelines</span>
+              <span class="pill">Clinical workflows</span>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="linkcard">
+              <div>🎥</div>
+              <div>
+                <div><strong>Demo (short)</strong></div>
+                <a href="#" aria-disabled="true" title="available on request">Available on request</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card case col-12" style="margin-top:12px;">
+        <h3>5) HCI for Minimally Invasive Surgery (Master’s Thesis)</h3>
+        <p class="sub">Human factors user study · Mixed Reality</p>
+        <p>Investigated whether MR tools can improve fine motor control for surgeons. Designed tasks, recruited participants, and analyzed performance—yielding design recommendations for future MR surgical interfaces.</p>
+      </article>
+
+      <article class="card case col-12" style="margin-top:12px;">
+        <h3>6) Robotics & Computer Vision Highlights</h3>
+        <p class="sub">Computer vision · NASA R5 (Valkyrie) · Automated chess-playing robot</p>
+        <p>Built perception for planetary navigation in simulation (NASA Space Robotics Challenge). Designed a board perception system for a chess-playing robotic arm and developed a real-time word recognition pipeline using CNNs.</p>
+      </article>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="card col-6">
+          <h3>Research & Methods</h3>
+          <p class="sub">Eye tracking, psychophysics, experimental design, quantitative/qualitative analysis</p>
+          <div class="stack">
+            <span class="pill">Study design</span>
+            <span class="pill">Protocol writing</span>
+            <span class="pill">Moderation</span>
+            <span class="pill">IRB</span>
+            <span class="pill">Stats & visualization</span>
+          </div>
+        </div>
+        <div class="card col-6">
+          <h3>Tools & Tech</h3>
+          <p class="sub">Python, R, MATLAB, OpenCV, PyTorch, Unity, Qualtrics, EyeLink</p>
+          <div class="stack">
+            <span class="pill">Python</span>
+            <span class="pill">R</span>
+            <span class="pill">MATLAB</span>
+            <span class="pill">OpenCV</span>
+            <span class="pill">PyTorch</span>
+            <span class="pill">Unity</span>
+            <span class="pill">Qualtrics</span>
+            <span class="pill">HoloLens</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching" class="section">
+      <h2>Teaching & Mentorship</h2>
+      <div class="card">
+        <p>As a TA at UCSB, I taught statistics and experimental design, mentored students through study design, data collection/analysis, and proposals, and provided detailed feedback to sharpen scientific thinking and communication.</p>
+      </div>
+    </section>
+
+    <section id="pubs" class="section">
+      <h2>Publications & Manuscripts</h2>
+      <div class="card">
+        <ul>
+          <li><em>Winograd Images Dataset</em> — under revise & resubmit at <em>Nature Communications</em>.</li>
+          <li>Conference talks & posters on human visual reasoning and scanpath analysis (selected).</li>
+        </ul>
+        <p class="sub">Full list & drafts available on request.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <div class="contact">
+        <a class="linkcard" href="mailto:smurlidaran@ucsb.edu"><span>✉️</span> <span>Email</span></a>
+        <a class="linkcard" href="tel:+13095329004"><span>📞</span> <span>+1 (309) 532-9004</span></a>
+        <a class="linkcard" href="https://linkedin.com/in/shravan-murlidaran" target="_blank" rel="noopener"><span>🔗</span> <span>LinkedIn</span></a>
+        <a class="linkcard" href="https://github.com/shravan1394" target="_blank" rel="noopener"><span>💻</span> <span>GitHub</span></a>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Shravan Murlidaran · Built with semantic HTML + vanilla CSS. Dark-first design.</div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Shravan Murlidaran",
+    "jobTitle": "UX Researcher / Ph.D. Candidate",
+    "email": "smurlidaran@ucsb.edu",
+    "telephone": "+1-309-532-9004",
+    "url": "",
+    "sameAs": [
+      "https://linkedin.com/in/shravan-murlidaran",
+      "https://github.com/shravan1394"
+    ],
+    "knowsAbout": [
+      "Eye tracking", "Psychophysics", "Human-computer interaction", "Mixed reality",
+      "Reinforcement learning", "Vision-language models", "Assistive technology"
+    ]
+  }
+  </script>
+</body>
+</html>
