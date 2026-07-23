@@ -100,6 +100,9 @@ h3{font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.3;margin:
 .prose,
 .minibio p,
 .showcase figcaption p,
+.split-note,
+.applied,
+.patentcard p,
 .pubs li > span:last-child{
   text-align:justify;
   text-justify:inter-word;
@@ -112,6 +115,9 @@ h3{font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.3;margin:
   .prose,
   .minibio p,
   .showcase figcaption p,
+  .split-note,
+  .applied,
+  .patentcard p,
   .pubs li > span:last-child{text-align:left;hyphens:manual;-webkit-hyphens:manual;}
 }
 
@@ -273,17 +279,42 @@ h3{font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.3;margin:
 }
 .showcase figcaption a:hover{border-bottom-color:var(--fix);}
 
+/* ---------- patent card ---------- */
+.patentcard{
+  border:1px solid var(--rule);border-left:3px solid var(--teal);
+  background:var(--surface);padding:20px 24px;border-radius:2px;
+}
+.patentcard .ptag{
+  display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;
+  background:var(--teal-tint);color:var(--teal);
+  padding:4px 10px;border-radius:2px;margin-bottom:14px;
+}
+.patentcard p{margin:0;font-family:var(--serif);font-size:16.5px;line-height:1.5;color:var(--ink);}
+.patentcard p + p{margin-top:6px;}
+.patentcard .pmeta{font-family:var(--mono);font-size:12px;letter-spacing:.02em;color:var(--gray);}
+
 /* ---------- research entries ---------- */
-.entry{
-  border-top:1px solid var(--rule);padding:34px 0 6px;
-  display:grid;grid-template-columns:112px 1fr;gap:28px;
+.applied{
+  margin-top:18px !important;padding:14px 18px;border-left:2px solid var(--fix);
+  background:#FBF6EA;font-size:15.5px;
 }
+.applied b{color:var(--ink);letter-spacing:.02em;}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 18px;padding:0;list-style:none;}
+.stack li{
+  font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  padding:4px 9px;border:1px solid var(--rule);border-radius:2px;
+  background:var(--surface);color:var(--ink-2);
+}
+.entry{border-top:1px solid var(--rule);padding:38px 0 6px;}
 .entry:first-of-type{border-top:0;padding-top:0;}
-@media (max-width:760px){.entry{grid-template-columns:1fr;gap:14px;}}
-.entry-index{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--gray);line-height:1.5;}
-.entry-index .n{
-  display:block;font-size:13px;color:var(--ink);margin-bottom:6px;
+.entry-index{
+  display:flex;gap:14px;align-items:baseline;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--gray);margin-bottom:16px;
 }
+.entry-index .n{color:var(--ink);}
+.entry-index .n::after{content:" ·";color:var(--gray);margin-left:4px;}
 .venue{
   display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;
   letter-spacing:.09em;text-transform:uppercase;
@@ -454,7 +485,7 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
         <li><b>Doctorate</b><span>Ph.D. Psychological &amp; Brain Sciences, UC Santa Barbara, 2026</span></li>
         <li><b>Published</b><span>First author, <em>Nature Communications</em> 17, 940 (2026)</span></li>
         <li><b>Under review</b><span>First author, <em>Nature Human Behaviour</em></span></li>
-        <li><b>Patent</b><span>U.S. provisional application, filed May 2026 (pending)</span></li>
+        <li><b>Patent</b><span><strong style="color:var(--ink)">Automated eye movement response systems and methods.</strong> U.S. provisional application, filed May 2026.</span></li>
         <li><b>Invited talk</b><span>NVIDIA Research, 2026</span></li>
       </ul>
     </div>
@@ -528,13 +559,11 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
 
     <!-- Paper 1 -->
     <article class="entry" id="paper-1">
-      <div class="entry-index">
-        <span class="n">01</span>
-        Measurement
-      </div>
+      <p class="entry-index"><span class="n">01</span><span>Measurement</span></p>
       <div>
         <span class="venue">Nature Communications · 2026</span>
         <h3>Eye movements during free viewing to maximize scene understanding</h3>
+        <ul class="stack"><li>EyeLink 1000 Plus</li><li>PsychoPy</li><li>Python</li><li>Mixed-effects models</li></ul>
         <p class="prose">
           What humans look at when freely viewing a scene is not well understood. We measured
           eye movements under different instructions while observers viewed Winograd images:
@@ -546,6 +575,10 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
           objects irrelevant to understanding degrades their descriptions, showing that
           free-viewing eye movements are functionally important for scene comprehension.
         </p>
+        <p class="prose applied"><b>Applied value.</b> A principled account of where people
+        look under free viewing gives interface, ad, and content designers a reason for their
+        layout decisions, and gives eye-tracking-based UX research a benchmark that isn't
+        pure saliency.</p>
         <ul class="linkrow">
           <li><a href="https://www.nature.com/articles/s41467-025-67673-w" target="_blank" rel="noopener">Read the paper</a></li>
           <li><a href="https://www.mendeley.com/catalogue/e9bfce9d-dd27-3993-b46c-c7f7ff5143a3/#references-title" target="_blank" rel="noopener">Dataset</a></li>
@@ -556,13 +589,11 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
 
     <!-- Paper 2 -->
     <article class="entry" id="paper-2">
-      <div class="entry-index">
-        <span class="n">02</span>
-        Model
-      </div>
+      <p class="entry-index"><span class="n">02</span><span>Model</span></p>
       <div>
         <span class="venue pending">Under review · Nature Human Behaviour</span>
         <h3>Why we look where we look: emergent human-like fixations of a foveated visual language model</h3>
+        <ul class="stack"><li>PyTorch</li><li>vLLM</li><li>REINFORCE</li><li>Qwen3-VL</li><li>OVIS2.5</li><li>Distributed GPU training</li></ul>
         <p class="prose">
           When humans view scenes without a specific task, they first direct their eye
           movements toward the scene center, then fixate on people, text, objects being looked
@@ -576,6 +607,10 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
           emerge as a functional byproduct of optimizing scene comprehension under the
           biological constraints of foveated vision.
         </p>
+        <p class="prose applied"><b>Applied value.</b> A model that decides where to look
+        next processes only a fraction of the pixels a full-resolution model does, which
+        matters for on-device VLMs, robotics, AR/VR, and any perception system with a
+        compute or bandwidth budget.</p>
 
         <div class="figure">
           <p class="figcap">
@@ -617,13 +652,11 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
 
     <!-- Paper 3 -->
     <article class="entry" id="paper-3">
-      <div class="entry-index">
-        <span class="n">03</span>
-        Benchmark
-      </div>
+      <p class="entry-index"><span class="n">03</span><span>Benchmark</span></p>
       <div>
         <span class="venue preprint">arXiv · 2026</span>
         <h3>Evolution of accuracy and visual-cognitive errors in a decade of vision-language AI models</h3>
+        <ul class="stack"><li>Multimodal LLMs</li><li>Benchmarking</li><li>Error taxonomy</li><li>Human evaluation</li></ul>
         <p class="prose">
           Visual reasoning benchmarks mostly use simple scenes, few human descriptions, and
           rarely ask what models actually get wrong. We introduce the Complex Social Behavior
@@ -635,6 +668,9 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
           nearly all have been eliminated, except that models still occasionally rely on
           different image regions than humans do.
         </p>
+        <p class="prose applied"><b>Applied value.</b> An error taxonomy for VLMs on complex
+        social scenes tells product teams which failure modes have been solved and which
+        still surface in deployment, which is more actionable than a single accuracy number.</p>
         <ul class="linkrow">
           <li><a href="https://arxiv.org/abs/2607.09654" target="_blank" rel="noopener">Read the preprint</a></li>
         </ul>
@@ -741,9 +777,11 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
     </ul>
 
     <p class="subhead">Patent</p>
-    <ul class="pubs">
-      <li><span class="yr">2026</span><span>Automated eye movement response systems and methods. U.S. provisional patent application, filed May 2026. Patent pending.</span></li>
-    </ul>
+    <div class="patentcard">
+      <span class="ptag">Patent pending</span>
+      <p><b>Automated Eye Movement Response Systems and Methods</b></p>
+      <p class="pmeta">U.S. Provisional Patent Application · Filed May 2026 · Co-inventor with M. P. Eckstein · Assigned to UC Regents</p>
+    </div>
 
     <p class="subhead">Talks and conference presentations</p>
     <ul class="pubs">
@@ -813,9 +851,6 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
     <div class="contact-grid">
       <a class="ccard" href="mailto:smurlidaran@ucsb.edu">
         <span class="k">Email</span><span class="v">smurlidaran@ucsb.edu</span>
-      </a>
-      <a class="ccard" href="tel:+13095329004">
-        <span class="k">Phone</span><span class="v">+1 309 532 9004</span>
       </a>
       <a class="ccard" href="https://www.linkedin.com/in/shravan-murlidaran/" target="_blank" rel="noopener">
         <span class="k">LinkedIn</span><span class="v">shravan-murlidaran</span>
