@@ -262,12 +262,10 @@ h3{font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.3;margin:
 .showcase .stripe span{display:inline-flex;align-items:center;gap:7px;}
 .showcase .stripe i{width:8px;height:8px;border-radius:50%;background:var(--fix);}
 .showcase .stripe span.m i{background:var(--teal);}
-.showcase figcaption{
-  margin-top:14px;display:grid;grid-template-columns:1fr auto;gap:14px 28px;align-items:end;
-}
-@media (max-width:680px){.showcase figcaption{grid-template-columns:1fr;align-items:start;}}
+.showcase figcaption{margin-top:14px;}
+
 .showcase figcaption p{
-  margin:0;font-family:var(--serif);font-size:16.5px;line-height:1.55;color:var(--ink-2);max-width:62ch;
+  margin:0 0 14px;font-family:var(--serif);font-size:16.5px;line-height:1.6;color:var(--ink-2);max-width:74ch;
 }
 .showcase figcaption a{
   font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;white-space:nowrap;
@@ -325,12 +323,12 @@ h3{font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.3;margin:
   border:1px solid var(--rule);border-radius:2px;
 }
 .vcell figcaption{
-  margin-top:9px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--gray);
-  display:flex;gap:9px;
+  margin-top:10px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;
+  line-height:1.45;color:var(--ink-2);
 }
-.vcell figcaption span{color:var(--ink);flex:none;}
 .split-note{
-  margin-top:14px;font-family:var(--mono);font-size:11.5px;color:var(--gray);letter-spacing:.03em;
+  margin-top:22px;font-family:var(--serif);font-size:15.5px;line-height:1.6;
+  color:var(--ink-2);max-width:74ch;
 }
 
 /* ---------- publication list ---------- */
@@ -501,11 +499,14 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
              preload="metadata" aria-label="Side by side comparison of a fixation heatmap from 50 participants and model fixations"></video>
       <figcaption>
         <p>
-          On the left, a fixation heatmap from 50 participants viewing the scene. On the
-          right, a single model. The model was trained to do one thing, understand the scene,
-          and was never shown a human eye movement. The similarity is the result.
+          On the left, a fixation heatmap pooled from 50 people freely viewing the scene. On
+          the right, a foveated vision-language model whose eye movements are optimized for its
+          own scene comprehension. The signature fixation behaviours of human free viewing
+          emerge on their own, with no human eye-tracking data used in training, as an optimal
+          strategy for maximizing scene understanding under the biological constraints of
+          foveated vision.
         </p>
-        <a href="#research">Read the research</a>
+        <a href="#paper-2">Read the research</a>
       </figcaption>
     </figure>
 
@@ -535,12 +536,15 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
         <span class="venue">Nature Communications · 2026</span>
         <h3>Eye movements during free viewing to maximize scene understanding</h3>
         <p class="prose">
-          When people look at a scene with no task at all, their eyes still go somewhere
-          specific. This paper introduces the Winograd Images dataset and Scene Understanding
-          Maps, a way of scoring how much each region of an image contributes to grasping what
-          the scene is about. Human fixations track those scene-understanding regions more
-          closely than they track classical visual saliency, which suggests free viewing is
-          less free than it looks: the eyes are already working toward comprehension.
+          What humans look at when freely viewing a scene is not well understood. We measured
+          eye movements under different instructions while observers viewed Winograd images:
+          pairs differing by a small visual alteration that greatly changes how the scene is
+          interpreted. Free-viewing fixations resemble those of observers describing scenes,
+          and differ from those counting or searching for objects. They are directed toward the
+          people and objects whose removal most alters scene interpretation, rather than toward
+          the most salient or most meaningfully judged regions. Constraining observers to fixate
+          objects irrelevant to understanding degrades their descriptions, showing that
+          free-viewing eye movements are functionally important for scene comprehension.
         </p>
         <ul class="linkrow">
           <li><a href="https://www.nature.com/articles/s41467-025-67673-w" target="_blank" rel="noopener">Read the paper</a></li>
@@ -560,12 +564,17 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
         <span class="venue pending">Under review · Nature Human Behaviour</span>
         <h3>Why we look where we look: emergent human-like fixations of a foveated visual language model</h3>
         <p class="prose">
-          A vision-language model given a human-like fovea and trained with reinforcement
-          learning to do one thing, understand the scene in front of it, starts moving its
-          gaze the way people do. It was never shown human eye-tracking data. The fixation
-          patterns emerge from the objective alone, which makes scene understanding a
-          candidate explanation for why human gaze looks the way it does rather than just a
-          correlate of it.
+          When humans view scenes without a specific task, they first direct their eye
+          movements toward the scene center, then fixate on people, text, objects being looked
+          at or grasped, and semantically meaningful regions. What these signature fixation
+          patterns reflect, and whether they optimize an underlying perceptual task, has
+          remained unknown. We show that a computational agent with simulated foveation,
+          trained to optimize scene comprehension, exhibits emergent human fixation signature
+          patterns. Versions of the agent trained instead to search or classify scenes, or
+          equipped with peripheral vision better or worse than human vision, predicted human
+          fixation patterns less accurately. Human free-viewing fixation patterns may therefore
+          emerge as a functional byproduct of optimizing scene comprehension under the
+          biological constraints of foveated vision.
         </p>
 
         <div class="figure">
@@ -576,22 +585,28 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
           <div class="vgrid">
             <figure class="vcell">
               <video src="assets/S1.mp4" poster="assets/S1.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Human and model fixations on people"></video>
-              <figcaption><span>S1</span> People</figcaption>
+              <figcaption>Fixations to people in the scene</figcaption>
             </figure>
             <figure class="vcell">
               <video src="assets/S2.mp4" poster="assets/S2.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Human and model fixations on grasped objects"></video>
-              <figcaption><span>S2</span> Grasped objects</figcaption>
+              <figcaption>Fixations to objects being grasped</figcaption>
             </figure>
             <figure class="vcell">
               <video src="assets/S3.mp4" poster="assets/S3.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Human and model fixations on regions critical to scene understanding"></video>
-              <figcaption><span>S3</span> Regions critical to scene understanding</figcaption>
+              <figcaption>Fixations to regions critical to scene understanding</figcaption>
             </figure>
             <figure class="vcell">
               <video src="assets/S4.mp4" poster="assets/S4.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Human and model fixations on text"></video>
-              <figcaption><span>S4</span> Text</figcaption>
+              <figcaption>Fixations to text in the scene</figcaption>
             </figure>
           </div>
-          <p class="split-note">Each clip is split: a fixation heatmap from 50 participants on the left, the model on the right.</p>
+          <p class="split-note">
+            Each clip is split. On the left, a fixation heatmap pooled from 50 participants,
+            showing the signature patterns we observe in human free viewing: fixations drawn to
+            people, to the objects they are handling, to text, and to whatever else the scene
+            depends on for its meaning. On the right, the same properties emerging in the
+            trained model, which arrived at them without ever seeing human eye-tracking data.
+          </p>
         </div>
 
         <ul class="linkrow">
@@ -610,11 +625,15 @@ footer p{margin:0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;
         <span class="venue preprint">arXiv · 2026</span>
         <h3>Evolution of accuracy and visual-cognitive errors in a decade of vision-language AI models</h3>
         <p class="prose">
-          Accuracy scores hide what a model actually gets wrong. Tracing vision-language
-          models across roughly a decade of development, this paper measures not only how
-          often they answer correctly about complex social scenes but which categories of
-          visual-cognitive error they make, and which of those errors have shrunk over time
-          versus which have stayed put while benchmark numbers climbed.
+          Visual reasoning benchmarks mostly use simple scenes, few human descriptions, and
+          rarely ask what models actually get wrong. We introduce the Complex Social Behavior
+          dataset, 100 images depicting complex social interactions, and trace scene
+          description accuracy across a decade of vision-language models against 20 human
+          descriptions and a gold standard. Multimodal LLMs now reach accuracies similar to the
+          top-ranked human descriptions, and have closed the gap between simple MS-COCO scenes
+          and scenes depicting complex behaviors. Across five visual-cognitive error types,
+          nearly all have been eliminated, except that models still occasionally rely on
+          different image regions than humans do.
         </p>
         <ul class="linkrow">
           <li><a href="https://arxiv.org/abs/2607.09654" target="_blank" rel="noopener">Read the preprint</a></li>
